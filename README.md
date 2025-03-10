@@ -1,3 +1,3 @@
 ### Design Pattern 
 
-Implementing various design pattern in PHP with Lravel framework
+Implementing various design patterns in PHP with Lravel framework
