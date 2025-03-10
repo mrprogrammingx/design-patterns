@@ -2,7 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
+use App\Services\Factory\PaymentFactory;
+use App\Contracts\Observer\UserObserverInterface;
+use App\Contracts\Factory\PaymentFactoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(PaymentFactoryInterface::class, PaymentFactory::class);
+        $this->app->bind(UserObserverInterface::class, UserObserver::class);
     }
 
     /**
@@ -19,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        User::observe(UserObserver::class);
     }
 }
