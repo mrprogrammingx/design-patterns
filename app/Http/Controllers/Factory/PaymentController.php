@@ -6,7 +6,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Factory\PaymentRequest;
-use App\Contracts\Contracts\Factory\PaymentFactoryInterface;
+use App\Contracts\Factory\PaymentFactoryInterface;
 
 class PaymentController extends Controller
 {

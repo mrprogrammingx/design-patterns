@@ -2,7 +2,7 @@
 
 namespace App\Services\Factory;
 
-use App\Contracts\Contracts\Factory\PaymentFactoryInterface;
+use App\Contracts\Factory\PaymentFactoryInterface;
 use App\Contracts\Factory\PaymentInterface;
 
 class PaymentFactory implements PaymentFactoryInterface
