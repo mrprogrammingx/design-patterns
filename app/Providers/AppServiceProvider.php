@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\Observers\UserObserver;
+use Illuminate\Foundation\AliasLoader;
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Factory\PaymentFactory;
 use App\Contracts\Observer\UserObserverInterface;
@@ -18,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(PaymentFactoryInterface::class, PaymentFactory::class);
         $this->app->bind(UserObserverInterface::class, UserObserver::class);
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Debugbar', Debugbar::class);
     }
 
     /**
