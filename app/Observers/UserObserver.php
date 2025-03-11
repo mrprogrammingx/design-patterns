@@ -14,7 +14,7 @@ class UserObserver implements UserObserverInterface
     public function created(User $user): void
     {
         ActivityLog::create([
-            'description' => 'User created:' . $user->name,
+            'description' => 'User created: ' . $user->name,
             'user_id' => $user->id,
         ]);
     }
@@ -24,7 +24,10 @@ class UserObserver implements UserObserverInterface
      */
     public function updated(User $user): void
     {
-        //
+        ActivityLog::create([
+            'description' => 'User updated: ' . $user->name,
+            'user_id' => $user->id,
+        ]);
     }
 
     /**
@@ -32,7 +35,10 @@ class UserObserver implements UserObserverInterface
      */
     public function deleted(User $user): void
     {
-        //
+        ActivityLog::create([
+            'description' => 'User deleted: ' . $user->name,
+            'user_id' => $user->id,
+        ]);
     }
 
     /**
@@ -40,7 +46,10 @@ class UserObserver implements UserObserverInterface
      */
     public function restored(User $user): void
     {
-        //
+        ActivityLog::create([
+            'description' => 'User restored: ' . $user->name,
+            'user_id' => $user->id,
+        ]);
     }
 
     /**
@@ -48,6 +57,9 @@ class UserObserver implements UserObserverInterface
      */
     public function forceDeleted(User $user): void
     {
-        //
+        ActivityLog::create([
+            'description' => 'User forceDeleted: ' . $user->name,
+            'user_id' => $user->id,
+        ]);
     }
 }
