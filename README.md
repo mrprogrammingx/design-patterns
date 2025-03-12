@@ -39,7 +39,7 @@ The Factory pattern is useful for creating instances of a class while keeping th
 ### The route for testing the factory:
 
 ```sh
-    http://127.0.0.1:8000/pay?payType=paypal"
+    http://127.0.0.1:8000/factory?payType=paypal"
 ```
 
 ## Conclusion
