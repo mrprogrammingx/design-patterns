@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Factory;
 
 use App\Http\Requests\BaseFormRequest;
+use Illuminate\Validation\Rule;
 
 class PaymentRequest extends BaseFormRequest
 {
@@ -14,7 +15,10 @@ class PaymentRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'payType' => 'required'
+            'payType' => [
+                'required',
+                Rule::in(['stripe', 'paypal']),
+            ]
         ];
     }
 }
